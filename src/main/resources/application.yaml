@@ -3,13 +3,15 @@ spring:
   jpa:
     properties:
       hibernate:
-        default_schema: customers
+        #default_schema: customers
   flyway:
     clean-disabled: true
     baseline-on-migrate: true
-    user: postgres
-    password: postgresql
-    url: jdbc:postgresql://localhost:5432/postgres
+    enabled: true
+    locations: src/main/resources/db/migration
+  #    user: postgres
+#    password: postgresql
+#    url: jdbc:postgresql://localhost:5432/postgres
   datasource:
     username: postgres
     password: postgresql
