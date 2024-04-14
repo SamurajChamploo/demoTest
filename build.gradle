@@ -25,7 +25,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.postgresql:postgresql:42.7.3'
-	implementation 'org.flywaydb:flyway-core:10.11.0'
+	implementation 'org.flywaydb:flyway-core:9.22.3' // this is the version of the flyway BITCH (works only this one with PostgreSQL 16)
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
