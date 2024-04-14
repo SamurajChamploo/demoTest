@@ -13,6 +13,6 @@ public class TestController {
     }
     @GetMapping(value="/bye")
     public String testik() {
-        return "Bye world";
+        return "Bye people";
     }
 }
