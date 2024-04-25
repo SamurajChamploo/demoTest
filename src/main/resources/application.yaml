@@ -16,7 +16,7 @@ spring:
     default-schema: customers
   datasource:
     username: postgres
-    password: postgres
+    password: postgresql
     url: jdbc:postgresql://localhost:5432/postgres
     driver-class-name: org.postgresql.Driver
   application:
