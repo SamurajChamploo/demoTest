@@ -9,16 +9,18 @@ import java.util.List;
 
 @Service
 public class ManagersService {
+    private static final String MOSCOW_TIME_ZONE = "+03:00";
+
     private final ManagersRepository managersRepository;
 
     public ManagersService(ManagersRepository managersRepository) {
         this.managersRepository = managersRepository;
     }
 
-    public String getManagersByFirstNameEnAndLastNameEn(String firstNameEn, String lastNameEn) {
-        Managers managers = managersRepository.findByFirstNameEnAndLastNameEn(firstNameEn, lastNameEn);
-        if (managers != null) {
-            return managers.getPhoneNumber();
+    public String getManagerByFirstNameEnAndLastNameEn(String firstNameEn, String lastNameEn) {
+        Managers manager = managersRepository.findByFirstNameEnAndLastNameEn(firstNameEn, lastNameEn);
+        if (manager != null) {
+            return manager.getPhoneNumber();
         }
         return "Нет менеджера по вашим критериям";
 
@@ -32,5 +34,21 @@ public class ManagersService {
         return managers.stream()
                 .map(Managers::getPhoneNumber)
                 .toList();
+    }
+
+    public String getManagersByTimeZone(String timeZone) {
+        Managers manager = managersRepository.findTopByTimeZone(timeZone);
+        if (manager == null) {
+            return getMoscowManager();
+        }
+        return manager.getPhoneNumber();
+    }
+
+    private String getMoscowManager() {
+        Managers managerMoscow = managersRepository.findTopByTimeZone(MOSCOW_TIME_ZONE);
+        if (managerMoscow == null) {
+            return "Нет вообще менеджеров";
+        }
+        return managerMoscow.getPhoneNumber();
     }
 }
