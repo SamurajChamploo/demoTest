@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.domain.Managers;
 import com.example.demo.repository.ManagersRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -23,8 +24,13 @@ public class ManagersService {
 
     }
 
-    public List<Managers> getManagers() {
+    public List<String> getManagers() {
         List<Managers> managers = managersRepository.findAll();
-        return managers;
+        if (CollectionUtils.isEmpty(managers)) {
+            return List.of("Нет менеджеров в базе");
+        }
+        return managers.stream()
+                .map(Managers::getPhoneNumber)
+                .toList();
     }
 }
