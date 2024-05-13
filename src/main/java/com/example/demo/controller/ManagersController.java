@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/managers")
 public class ManagersController {
@@ -18,8 +20,8 @@ public class ManagersController {
     public String getManagersByFirstNameEnAndLastNameEn(String firstNameEn, String lastNameEn) {
         return managersService.getManagersByFirstNameEnAndLastNameEn(firstNameEn, lastNameEn);
     }
-//    @GetMapping
-//    public String getManagers() {
-//        return managersService.getManagers();
-//    }
+    @GetMapping
+    public List<String> getManagers() {
+        return managersService.getManagers();
+    }
 }
