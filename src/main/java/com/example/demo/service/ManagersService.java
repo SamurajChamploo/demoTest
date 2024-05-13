@@ -17,13 +17,12 @@ public class ManagersService {
         this.managersRepository = managersRepository;
     }
 
-    public String getManagerByFirstNameEnAndLastNameEn(String firstNameEn, String lastNameEn) {
-        Managers manager = managersRepository.findByFirstNameEnAndLastNameEn(firstNameEn, lastNameEn);
+    public String getManagerPhoneNumberByFirstNameEnAndLastNameEn(String firstNameEn, String lastNameEn) {
+        Managers manager = managersRepository.findTopByFirstNameEnAndLastNameEn(firstNameEn, lastNameEn);
         if (manager != null) {
             return manager.getPhoneNumber();
         }
         return "Нет менеджера по вашим критериям";
-
     }
 
     public List<String> getManagers() {
