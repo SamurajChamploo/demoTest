@@ -2,12 +2,14 @@ package com.example.demo.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
 @Table(name = "managers")
 @ToString
 @Getter
+@Setter
 public class Managers {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

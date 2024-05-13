@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CustomersRepository extends JpaRepository<Customers, Long> {
-    Customers findByCnum(Long cnum);
+    Customers findTopByCnum(Long cnum);
 }

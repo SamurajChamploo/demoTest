@@ -2,6 +2,7 @@ package com.example.demo.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @Table(name = "customers")
 @ToString
 @Getter
+@Setter
 public class Customers {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

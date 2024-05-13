@@ -18,7 +18,7 @@ public class ManagersController {
 
     @GetMapping(value = "/byFirstNameEnAndLastNameEn")
     public String getManagerByFirstNameEnAndLastNameEn(String firstNameEn, String lastNameEn) {
-        return managersService.getManagerByFirstNameEnAndLastNameEn(firstNameEn, lastNameEn);
+        return managersService.getManagerPhoneNumberByFirstNameEnAndLastNameEn(firstNameEn, lastNameEn);
     }
     @GetMapping
     public List<String> getManagers() {

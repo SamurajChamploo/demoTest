@@ -15,7 +15,7 @@ public class CustomersService {
     }
 
     public Customers getCustomersByCnum(Long cnum) {
-        Customers customer = customersRepository.findByCnum(cnum);
+        Customers customer = customersRepository.findTopByCnum(cnum);
         if (customer != null) {
             return customer;
         }
@@ -26,4 +26,5 @@ public class CustomersService {
         List<Customers> customers = customersRepository.findAll();
         return customers;
     }
+
 }
