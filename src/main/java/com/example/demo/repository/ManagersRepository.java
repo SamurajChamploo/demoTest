@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ManagersRepository extends JpaRepository<Managers, Long> {
+    Managers findByFirstNameEnAndLastNameEn(String firstNameEn, String lastNameEn);
 }
