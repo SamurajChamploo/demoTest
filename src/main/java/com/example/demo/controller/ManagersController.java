@@ -17,11 +17,16 @@ public class ManagersController {
     }
 
     @GetMapping(value = "/byFirstNameEnAndLastNameEn")
-    public String getManagersByFirstNameEnAndLastNameEn(String firstNameEn, String lastNameEn) {
-        return managersService.getManagersByFirstNameEnAndLastNameEn(firstNameEn, lastNameEn);
+    public String getManagerByFirstNameEnAndLastNameEn(String firstNameEn, String lastNameEn) {
+        return managersService.getManagerByFirstNameEnAndLastNameEn(firstNameEn, lastNameEn);
     }
     @GetMapping
     public List<String> getManagers() {
         return managersService.getManagers();
+    }
+
+    @GetMapping(value = "/byTimeZone")
+    public String getManagerByTimeZone(String timeZone) {
+        return managersService.getManagersByTimeZone(timeZone);
     }
 }
