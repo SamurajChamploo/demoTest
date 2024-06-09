@@ -24,7 +24,7 @@ public class ManagersService {
         if (manager != null) {
             return manager.getPhoneNumber();
         }
-        return "Нет менеджера по вашим критериям";
+        return "Нет менеджера по вашим критериям?";
     }
 
     public List<String> getManagers() {
