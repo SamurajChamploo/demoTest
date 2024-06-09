@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.domain.Managers;
 import com.example.demo.repository.ManagersRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -9,7 +10,8 @@ import java.util.List;
 
 @Service
 public class ManagersService {
-    private static final String MOSCOW_TIME_ZONE = "+03:00";
+    @Value("${default-time-zone}")
+    private String moscowTimeZone;
 
     private final ManagersRepository managersRepository;
 
@@ -44,7 +46,7 @@ public class ManagersService {
     }
 
     private String getMoscowManager() {
-        Managers managerMoscow = managersRepository.findTopByTimeZone(MOSCOW_TIME_ZONE);
+        Managers managerMoscow = managersRepository.findTopByTimeZone(moscowTimeZone);
         if (managerMoscow == null) {
             return "Нет вообще менеджеров";
         }
