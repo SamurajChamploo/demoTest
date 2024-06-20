@@ -19,7 +19,7 @@ public class CustomersService {
     public Customers getCustomersByCnum(Long cnum) {
         Customers customer = customersRepository.findTopByCnum(cnum);
         if (customer != null) {
-            log.info("Getting a customer by their cnum");
+            log.info("Getting a customer by their {}", cnum);
             return customer;
         }
         log.error("No customer with such cnum");

@@ -22,7 +22,7 @@ public class CustomersController {
     @GetMapping(value = "/byCnum")
     public String getCustomersByCnum(Long cnum) {
         Customers customers = customersService.getCustomersByCnum(cnum);
-        log.info("Getting a customer by their cnum");
+        log.info("Getting a customer by {}", cnum);
         return customers.getFirstName();
     }
 
