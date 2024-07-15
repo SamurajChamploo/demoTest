@@ -88,7 +88,7 @@ public class ManagersServiceTest {
         String timeZone = "+02:00";
         Managers manager = getTestManager2(timeZone);
         String expectedPhoneNumber = manager.getPhoneNumber();
-        Mockito.when(managersRepository.findTopByTimeZone(timeZone)).thenReturn(manager);
+        Mockito.when(managersRepository.findTopByTimeZoneEquals(timeZone)).thenReturn(manager);
 
         String managersPhoneNumber = managersService.getManagersByTimeZone(timeZone);
 
@@ -100,8 +100,8 @@ public class ManagersServiceTest {
         String timeZone = "+02:00";
         Managers manager = getTestManager2("+03:00");
         String expectedPhoneNumber = manager.getPhoneNumber();
-        Mockito.when(managersRepository.findTopByTimeZone(timeZone)).thenReturn(null);
-        Mockito.when(managersRepository.findTopByTimeZone("+03:00")).thenReturn(manager);
+        Mockito.when(managersRepository.findTopByTimeZoneEquals(timeZone)).thenReturn(null);
+        Mockito.when(managersRepository.findTopByTimeZoneEquals("+03:00")).thenReturn(manager);
 
         String managersPhoneNumber = managersService.getManagersByTimeZone(timeZone);
 
@@ -112,8 +112,8 @@ public class ManagersServiceTest {
     void getManagerPhoneNumberByTimeZoneTotallyNull() {
         String timeZone = "+02:00";
         Managers manager = getTestManager2("+03:00");
-        Mockito.when(managersRepository.findTopByTimeZone(timeZone)).thenReturn(null);
-        Mockito.when(managersRepository.findTopByTimeZone("+03:00")).thenReturn(null);
+        Mockito.when(managersRepository.findTopByTimeZoneEquals(timeZone)).thenReturn(null);
+        Mockito.when(managersRepository.findTopByTimeZoneEquals("+03:00")).thenReturn(null);
 
         String managersPhoneNumber = managersService.getManagersByTimeZone(timeZone);
 

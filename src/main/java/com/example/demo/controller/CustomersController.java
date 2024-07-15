@@ -21,15 +21,15 @@ public class CustomersController {
 
     @GetMapping(value = "/byCnum")
     public String getCustomersByCnum(Long cnum) {
-        Customers customers = customersService.getCustomersByCnum(cnum);
         log.info("Getting a customer by {}", cnum);
+        Customers customers = customersService.getCustomersByCnum(cnum);
         return customers.getFirstName();
     }
 
     @GetMapping
     public List<String> getCustomers() {
-        List<Customers> customers = customersService.getCustomers();
         log.info("Getting a list of customers");
+        List<Customers> customers = customersService.getCustomers();
         return customers.stream()
                 .map(Customers::getFirstName)
                 .toList();

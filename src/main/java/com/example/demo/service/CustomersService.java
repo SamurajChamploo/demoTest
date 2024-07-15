@@ -27,8 +27,8 @@ public class CustomersService {
     }
 
     public List<Customers> getCustomers() {
-        List<Customers> customers = customersRepository.findAll();
         log.info("Getting a list of customers");
+        List<Customers> customers = customersRepository.findAll();
         return customers;
     }
 

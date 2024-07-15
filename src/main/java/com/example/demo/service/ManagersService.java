@@ -46,7 +46,7 @@ public class ManagersService {
     }
 
     public String getManagersByTimeZone(String timeZone) {
-        Managers manager = managersRepository.findTopByTimeZone(timeZone); // не находит никого, всегда null возвращает
+        Managers manager = managersRepository.findTopByTimeZoneEquals(timeZone); // не находит никого, всегда null возвращает
         if (manager == null) {
             logger.log(Level.INFO, "Getting default Moscow manager");
             return getMoscowManager();
@@ -56,7 +56,7 @@ public class ManagersService {
     }
 
     private String getMoscowManager() {
-        Managers managerMoscow = managersRepository.findTopByTimeZone(moscowTimeZone);
+        Managers managerMoscow = managersRepository.findTopByTimeZoneEquals(moscowTimeZone);
         if (managerMoscow == null) {
             logger.log(Level.INFO, "No managers in DB at all");
             return "Нет вообще менеджеров";
